@@ -8,6 +8,7 @@
     <artifactId>innovation-project</artifactId>
     <packaging>pom</packaging>
     <version>0.1.0</version>
+
     <modules>
         <module>eureka_server</module>
         <module>weather_data_producer</module>
@@ -15,6 +16,7 @@
 
     <properties>
         <spring.cloud.netflix.version>1.2.1.RELEASE</spring.cloud.netflix.version>
+        <spring.boot.maven.plugin.version>1.4.1.RELEASE</spring.boot.maven.plugin.version>
     </properties>
 
 
@@ -60,6 +62,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.maven.plugin.version}</version>
             </plugin>
 
         </plugins>
