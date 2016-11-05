@@ -10,7 +10,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  */
 
 @SpringBootApplication
-//@EnableEurekaClient
+@EnableEurekaClient
 @EnableCircuitBreaker
 public class WeatherProducerApp {
 
