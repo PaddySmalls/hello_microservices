@@ -14,25 +14,26 @@
         <module>weather_data_producer</module>
     </modules>
 
-    <properties>
-        <spring.cloud.netflix.version>1.2.1.RELEASE</spring.cloud.netflix.version>
-        <spring.boot.maven.plugin.version>1.4.1.RELEASE</spring.boot.maven.plugin.version>
-    </properties>
+    <parent>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-parent</artifactId>
+        <version>1.0.2.RELEASE</version>
+    </parent>
 
 
-    <dependencyManagement>
-        <dependencies>
+    <!--<dependencyManagement>-->
+        <!--<dependencies>-->
 
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-netflix</artifactId>
-                <version>${spring.cloud.netflix.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>org.springframework.cloud</groupId>-->
+                <!--<artifactId>spring-cloud-netflix</artifactId>-->
+                <!--<version>${spring.cloud.netflix.version}</version>-->
+                <!--<type>pom</type>-->
+                <!--<scope>import</scope>-->
+            <!--</dependency>-->
 
-        </dependencies>
-    </dependencyManagement>
+        <!--</dependencies>-->
+    <!--</dependencyManagement>-->
 
 
     <dependencies>
@@ -62,7 +63,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring.boot.maven.plugin.version}</version>
+                <!--<version>${spring.boot.maven.plugin.version}</version>-->
             </plugin>
 
         </plugins>
