@@ -1,2 +1,13 @@
+spring:
+  application:
+    name: weather-data-producer
+
 server:
-  port: 8080
+  port: 0
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:8761/eureka/
+  instance:
+   preferIpAddress: true
