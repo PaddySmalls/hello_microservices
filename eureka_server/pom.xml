@@ -23,4 +23,27 @@
 
     </dependencies>
 
+    <build>
+        <finalName>eureka-server</finalName>
+
+        <plugins>
+
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.4.11</version>
+                <configuration>
+                    <dockerDirectory>.</dockerDirectory>
+                    <imageName>localhost:5000/eureka-server</imageName>
+                    <imageTags>
+                        <imageTag>latest</imageTag>
+                    </imageTags>
+                    <pushImage>true</pushImage>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
 </project>
