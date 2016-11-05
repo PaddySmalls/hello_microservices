@@ -6,6 +6,7 @@ import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,20 +17,21 @@ import org.springframework.stereotype.Service;
 public class WeatherService {
 
     private static final String BASE_URL = "http://api.openweathermap.org/data/2.5/weather";
-    private static final String APPID = "APPID=???";
+
+    private ApiKeyReader apiKeyReader;
+    private final String appID;
+
+    @Autowired
+    public WeatherService(ApiKeyReader apiKeyReader) {
+        this.apiKeyReader = apiKeyReader;
+        appID = apiKeyReader.readKey();
+    }
 
     @HystrixCommand(fallbackMethod = "weatherFallback")
     public WeatherData getDataByCityId(String cityId) {
 
-
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         Client client = Client.create();
-        WebResource webResource = client.resource(BASE_URL + "?id=" + cityId + "&units=metric&" + APPID);
+        WebResource webResource = client.resource(BASE_URL + "?id=" + cityId + "&units=metric&" + "APPID=" + appID);
 
         ClientResponse response = webResource.accept("application/json").get(ClientResponse.class);
 
