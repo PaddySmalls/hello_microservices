@@ -12,6 +12,7 @@
     <modules>
         <module>eureka_server</module>
         <module>weather_data_producer</module>
+        <module>weather_data_consumer</module>
     </modules>
 
     <parent>
