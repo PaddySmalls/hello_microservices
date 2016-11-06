@@ -11,6 +11,7 @@
 
     <artifactId>weather-data-producer</artifactId>
     <version>0.1.0</version>
+    <packaging>jar</packaging>
 
     <dependencies>
 
