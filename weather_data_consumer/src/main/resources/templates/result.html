@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    
+    <head>
+        <title>Hello, Mircoservices!</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    </head>
+    
+    <body>
+        <h2>It worked!</h2>
+        
+        <div>
+            
+            <label>City name:</label>
+            <span th:text="${result.cityName}"/><br/>
+            
+            <label>Textual description:</label>
+            <span th:text="${result.description}"/><br/>
+            
+            <label>Current Temperature (Degree Celsius):</label>
+            <span th:text="${result.currentTemp}"/><br/>
+            
+            <label>Timestamp:</label>
+            <span th:text="${result.time}"/><br/>
+            
+            <label>Response Code:</label>
+            <span th:text="${result.responseStatusCode}"/><br/>
+            
+            <label>Additional Info:</label>
+            <span th:text="${result.message}"/><br/>
+    
+            <label>Cached?</label>
+            <span th:text="${result.cached}"/><br/>
+            
+            <a th:href="@{/}">New Search</a>
+        
+        </div>
+    
+    </body>
+
+</html>
