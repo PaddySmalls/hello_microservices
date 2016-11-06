@@ -7,14 +7,16 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * @author patrick.kleindienst
+ *
+ * TODO: Is {@link EnableEurekaClient} necessary here?
  */
 
 @SpringBootApplication
 @EnableEurekaClient
 @EnableCircuitBreaker
-public class WeatherProducerApp {
+public class WeatherDataProducerApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(WeatherProducerApp.class);
+        SpringApplication.run(WeatherDataProducerApp.class);
     }
 }
