@@ -1,9 +1,8 @@
-package de.stuttgart.hdm.csm.pk070.weather;
+package de.stuttgart.hdm.csm.pk070.weather.api;
 
 import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Objects;
@@ -13,7 +12,7 @@ import java.util.Objects;
  */
 
 @Component
-public class ApiKeyReader {
+class ApiKeyReader {
 
     private static final String DEFAULT_KEY_PATH = "/tmp/api_key";
 
@@ -25,7 +24,7 @@ public class ApiKeyReader {
             reader = new BufferedReader(new FileReader(DEFAULT_KEY_PATH));
             apiKey = reader.readLine();
 
-            if (Objects.isNull(apiKey) || apiKey.equals("")) {
+            if (Objects.isNull(apiKey) || apiKey.isEmpty()) {
                 throw new IllegalArgumentException("API key must not be empty!");
             }
 
