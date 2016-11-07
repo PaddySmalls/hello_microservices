@@ -1,0 +1,33 @@
+
+body {
+    background-color: #193f5f;
+}
+
+.page-header {
+    color: white;
+}
+
+#form_div {
+    background-color: #999;
+}
+
+#instructions {
+    font-size: 1.25em;
+    text-align: left;
+    color: white;
+    margin-left: 30%;
+    margin-right: 25%;
+    margin-top: 5%;
+}
+
+#result_div {
+    font-size: 1.25em;
+    background-color: #999;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 5%;
+}
+
+#new_search {
+    margin-bottom: 5%;
+}

@@ -1,42 +1,60 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-    
+
     <head>
         <title>Hello, Mircoservices!</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous"/>
+        <link rel="stylesheet" href="css/style.css"/>
     </head>
-    
+
     <body>
-        <h2>It worked!</h2>
-        
-        <div>
-            
-            <label>City name:</label>
-            <span th:text="${result.cityName}"/><br/>
-            
-            <label>Textual description:</label>
-            <span th:text="${result.description}"/><br/>
-            
-            <label>Current Temperature (Degree Celsius):</label>
-            <span th:text="${result.currentTemp}"/><br/>
-            
-            <label>Timestamp:</label>
-            <span th:text="${result.time}"/><br/>
-            
-            <label>Response Code:</label>
-            <span th:text="${result.responseStatusCode}"/><br/>
-            
-            <label>Additional Info:</label>
-            <span th:text="${result.message}"/><br/>
-    
-            <label>Cached?</label>
-            <span th:text="${result.cached}"/><br/>
-            
-            <a th:href="@{/}">New Search</a>
-        
+        <div class="container">
+
+            <div class="page-header">
+                <h1>
+                    Hey, it worked!
+                    <small>Here're your results</small>
+                </h1>
+            </div>
+
+            <div id="result_div" class="jumbotron">
+
+                <img th:src="${'http://openweathermap.org/img/w/' + result.icon + '.png'}" width="100px"
+                     height="100px"/><br/>
+
+                <label>City name:</label>
+                <span th:text="${result.cityName}"/><br/>
+
+                <label>Textual description:</label>
+                <span th:text="${result.description}"/><br/>
+
+                <label>Current Temperature (Degree Celsius):</label>
+                <span th:text="${result.currentTemp}"/><br/>
+
+                <label>Timestamp:</label>
+                <span th:text="${result.time}"/><br/>
+
+                <label>Response Code:</label>
+                <span th:text="${result.responseStatusCode}"/><br/>
+
+                <label>Additional Info:</label>
+                <span th:text="${result.message}"/><br/>
+
+                <label>Cached?</label>
+                <span th:text="${result.cached}"/><br/>
+
+
+                <div id="new_search">
+                    <a class="btn btn-lg btn-warning pull-right" th:href="@{/}">New Search</a>
+                </div>
+
+            </div>
+
         </div>
-    
     </body>
 
 </html>

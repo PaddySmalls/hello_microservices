@@ -1,23 +1,61 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-    
+
     <head>
         <title>Hello, Mircoservices!</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous"/>
+        <link rel="stylesheet" href="css/style.css"/>
     </head>
-    
+
     <body>
-        <h2>Welcome!</h2>
-        <form method="post" th:action="@{/weather}" th:object="${zipCode}">
-            <label>Zip Code:</label>
-            <input type="text" th:field="*{zipCode}"/><br/>
-            
-            <label>Country Code</label>
-            <input type="text" maxlength="2" th:field="*{countryCode}"/><br/>
-            
-            <input type="submit" name="submit" value="GO!"/><br/>
-        </form>
+
+        <div class="container">
+
+            <div class="page-header">
+                <h1>Howdy!
+                    <small>This is your favorite weather service.</small>
+                </h1>
+            </div>
+
+            <div id="instructions">
+                <ol>
+                    <li>
+                        <p>Enter desired zip code.</p>
+                    </li>
+                    <li>
+                        <p>Enter desired country code (DE, US, ..).</p>
+                    </li>
+                    <li>
+                        <p>Hit the button and hope for good weather :)</p>
+                    </li>
+                </ol>
+            </div>
+
+            <div id="form_div" class="jumbotron" style="margin-left: 25%; margin-right: 25%; margin-top: 5%">
+                <form method="post" th:action="@{/weather}" th:object="${zipCode}">
+                    <div class="form-group">
+                        <label for="zipCode">Zip Code</label>
+                        <input id="zipCode" type="text" th:field="*{zipCode}" class="form-control"
+                               placeholder="12345"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="countryCode">Country Code</label>
+                        <input id="countryCode" type="text" maxlength="2" th:field="*{countryCode}"
+                               class="form-control" placeholder="DE"/>
+                    </div>
+
+                    <button type="submit" name="submit" class="btn btn-lg btn-success pull-right">Go!</button>
+                    <br/>
+                </form>
+            </div>
+
+        </div>
+
     </body>
 
 </html>
