@@ -3,10 +3,10 @@ spring:
     name: weather-data-consumer
 
 server:
-  port: 8080
+  port: 8088
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://eureka:8761/eureka/
     register-with-eureka: false
