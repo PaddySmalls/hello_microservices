@@ -11,6 +11,7 @@ public class WeatherResponseObject {
     private String description;
     private double currentTemp;
     private String time;
+    private String icon;
 
     private int responseStatusCode;
     private String message;
@@ -18,8 +19,8 @@ public class WeatherResponseObject {
 
     public static WeatherResponseObject getEmpty() {
         WeatherResponseObject responseObject = new WeatherResponseObject();
-        responseObject.setCityName("");
-        responseObject.setDescription("");
+        responseObject.setCityName("-");
+        responseObject.setDescription("-");
         responseObject.setCurrentTemp(0.0);
         responseObject.setResponseStatusCode(-1);
         responseObject.setTime(LocalTime.now().toString());
@@ -96,6 +97,15 @@ public class WeatherResponseObject {
         responseObjectCopy.setResponseStatusCode(this.getResponseStatusCode());
         responseObjectCopy.setMessage(this.getMessage());
         responseObjectCopy.setTime(this.getTime());
+        responseObjectCopy.setIcon(this.getIcon());
         return responseObjectCopy;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 }

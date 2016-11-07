@@ -21,6 +21,7 @@ public class WeatherApiResponseFormatter {
         weatherResponseObject.setCityName(extractCityName(jsonObject));
         weatherResponseObject.setDescription(extractTextualDescription(jsonObject));
         weatherResponseObject.setCurrentTemp(extractCurrentTemperature(jsonObject));
+        weatherResponseObject.setIcon(extractWeatherIcon(jsonObject));
 
         weatherResponseObject.setResponseStatusCode(clientResponse.getStatus());
         weatherResponseObject.setMessage(clientResponse.getStatusInfo().getReasonPhrase());
@@ -43,6 +44,10 @@ public class WeatherApiResponseFormatter {
 
     private Double extractCurrentTemperature(JSONObject jsonResponse) {
         return (double) ((JSONObject) jsonResponse.get("main")).get("temp");
+    }
+
+    private String extractWeatherIcon(JSONObject jsonResponse) {
+        return (String) ((JSONObject) ((JSONArray) jsonResponse.get("weather")).get(0)).get("icon");
     }
 
 }
