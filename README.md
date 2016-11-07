@@ -27,7 +27,7 @@ It consists  of three individual components:
 2) __Weather Data Consumer__:<br/>
 The second service offers a simple GUI which accepts a zip code as well as a country
 code as user input. The given input is then transferred to the _Weather Data Producer_ by means of an
-HTTP GET request. Afterwards, the HTTP response payload sent gets displayed on the GUI. 
+HTTP GET request. Afterwards, the HTTP response payload received gets displayed on the GUI. 
 
 3) __Service Discovery Application__:<br/>
 In order to end up with a scalable and reliable application, we need our services to be loosely coupled.
@@ -37,4 +37,12 @@ discovery application, where it can be looked up and therefore accessed by the c
 can arbitrarily add and remove producer service instances running on different IPs and ports without breaking
 clients.
 
+
+![](/screenshots/consumer_gui.png)
+
+![](/screenshots/consumer_gui_2.png)
+
+![](/screenshots/failover_demo.png)
+
+![](/screenshots/eureka.png)
   
