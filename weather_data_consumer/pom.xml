@@ -36,6 +36,23 @@
     <build>
         <finalName>consumer</finalName>
 
+        <plugins>
+
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.4.11</version>
+                <configuration>
+                    <dockerDirectory>.</dockerDirectory>
+                    <imageName>localhost:5000/weather-consumer</imageName>
+                    <imageTags>
+                        <imageTag>latest</imageTag>
+                    </imageTags>
+                    <pushImage>true</pushImage>
+                </configuration>
+            </plugin>
+
+        </plugins>
     </build>
 
 </project>
