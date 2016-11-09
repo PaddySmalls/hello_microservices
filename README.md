@@ -70,29 +70,29 @@ dependency an application declares on a remote service has to be backed by what 
 pool. Having a server thread passing control to a dedicated request thread from a fix-sized pool when a remote service
 gets called comes with many advantages:
 
-     + Imagine a client wants to contact a server which is temporarily or permanently down. With the client re-trying
+   + Imagine a client wants to contact a server which is temporarily or permanently down. With the client re-trying
       over and over again, it doesn't take long until a mass of threads idles, waiting for the server to respond. In the 
       worst case, the client runs out of memory and gets killed by the operating system. By means of a thread pool 
       per service we can define a maximum number of threads which are allowed to be in use a the same time. Remote calls
       will simply be rejected if there's no thread available in the pool.
       
-     + In case a remote service stays down permanently, keep on sending requests is not the best way in order to give 
+   + In case a remote service stays down permanently, keep on sending requests is not the best way in order to give 
      the crashed server a chance to recover. A so-called "circuit breaker" blocks every call on a service in case the
      error rate exceeds a certain threshold. At the same time, the remote server gets pinged in constant intervals.
      Assuming that the crashed server finally comes back to live and responds to these messages over a certain 
      amount of time, the circuit breaker can decide to re-open the gate, letting requests pass again.
       
-     + Another advantage of this approach is that an unreachable remote service must not necessarily in a
+   + Another advantage of this approach is that an unreachable remote service must not necessarily in a
       client request simply being rejected. Instead, there's also the possibility to execute a "fallback" procedure
       if either a service is unavailable or the circuit breaker is open. For example, a reasonable operation within a
       fallback could be to fetch old data from a cache and send it to the client. In general, this approach is 
       called "failover". The concrete failover behavior that makes sense for an application mainly depends on 
       its use case.
       
-      A very popular tool which exactly tackles these requirements is _Hystrix_ by Netflix. It provides a 
-      a rich and comprehensible API for easily wrapping remote calls in _HystrixCommands_ and letting the framework
-      take care of all the issues described above. Consider the docs of the _Weather Producer Service_ as well as 
-      the _Weather Consumer_ to learn more on how Hystix has been applied in the context of this project.
+   A very popular tool which exactly tackles these requirements is _Hystrix_ by Netflix. It provides a 
+   a rich and comprehensible API for easily wrapping remote calls in _HystrixCommands_ and letting the framework
+   take care of all the issues described above. Consider the docs of the _Weather Producer Service_ as well as 
+   the _Weather Consumer_ to learn more on how Hystix has been applied in the context of this project.
     
     
 
